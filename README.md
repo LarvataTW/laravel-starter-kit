@@ -32,9 +32,9 @@ laravel new example-app --using=larvata/laravel-starter-kit
 ### Create Development Environment
 
 ```bash
-docker exec -t web php artisan octane:install --server=swoole
-docker exec -t web composer install
-docker exec -t web npm install
+docker exec -t "$(basename $(pwd))-web-1" php artisan octane:install --server=swoole
+docker exec -t "$(basename $(pwd))-web-1" composer install
+docker exec -t "$(basename $(pwd))-web-1" npm install npm
 ```
 ## License
 
