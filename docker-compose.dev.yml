@@ -12,7 +12,7 @@ services:
       dockerfile: Dockerfile.dev
       args:
         - INSTALL_NPM=true
-    container_name: web    
+    # container_name: web    
     volumes:
       - ./:/var/www
     ports:
@@ -23,7 +23,7 @@ services:
   ### MySQL Service ####################################
   mysql:
     image: mysql:8
-    container_name: mysql
+    # container_name: mysql
     ports:
       - "3306:3306"
     environment:
@@ -38,7 +38,7 @@ services:
       ### Adminer Service ##################################
   adminer:
     image: adminer
-    container_name: adminer
+    # container_name: adminer
     ports:
       - "8080:8080"
     networks:
