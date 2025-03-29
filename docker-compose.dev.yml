@@ -13,7 +13,7 @@ services:
       args:
         - INSTALL_NPM=true
     volumes:
-      - ./:/var/www:cached
+      - ./:/var/www
     ports:
       - "80:80"
     networks:
