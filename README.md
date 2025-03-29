@@ -26,18 +26,20 @@ composer global require laravel/installer
 ### Create Project
 
 ```bash
-laravel new example-app --using=larvata/laravel-starter-kit  --pest --npm
+laravel new example-app --using=larvata/laravel-starter-kit  --phpunit --npm
 ```
-* --pest : Using pest 
-* --npm  : After installation, run npm install
+* --pest    : Using pest 
+* --phpunit : using phpunit
+* --npm     : After installation, run npm install
 
 
 ### Create Development Environment
 
 ```bash
-docker exec -t "$(basename $(pwd))-web-1" php artisan octane:install --server=swoole
-docker exec -t "$(basename $(pwd))-web-1" composer install
-docker exec -t "$(basename $(pwd))-web-1" npm install npm
+docker compose -f docker-compose.dev.yml up 
+#docker exec -t "$(basename $(pwd))-web-1" php artisan octane:install --server=swoole
+#docker exec -t "$(basename $(pwd))-web-1" composer install
+#docker exec -t "$(basename $(pwd))-web-1" npm install npm
 ```
 ## License
 
