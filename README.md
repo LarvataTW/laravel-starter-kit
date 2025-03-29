@@ -26,8 +26,11 @@ composer global require laravel/installer
 ### Create Project
 
 ```bash
-laravel new example-app --using=larvata/laravel-starter-kit 
+laravel new example-app --using=larvata/laravel-starter-kit  --pest --npm
 ```
+* --pest : Using pest 
+* --npm  : After installation, run npm install
+
 
 ### Create Development Environment
 
