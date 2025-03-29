@@ -1,0 +1,47 @@
+version: '3.9'
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  ### Web Server #######################################
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - INSTALL_NPM=true
+    volumes:
+      - ./:/var/www:cached
+    ports:
+      - "80:80"
+    networks:
+      - backend
+    command: "envoy run local"
+  ### MySQL Service ####################################
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+      ### Adminer Service ##################################
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+volumes:
+    mysql_data:
+
