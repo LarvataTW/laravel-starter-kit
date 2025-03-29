@@ -23,7 +23,7 @@ php artisan storage:link
 {{--啟動設定--}}
 {{--supervisorctl start laravel-schedule:*--}}
 {{--supervisorctl start laravel-worker:*--}}
-supervisorctl start laravel-php-fpm:*
+{{--supervisorctl start laravel-php-fpm:*--}}
 supervisorctl start laravel-octane-dev:*
 supervisorctl start laravel-nginx:*
 
