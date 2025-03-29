@@ -23,13 +23,19 @@ To globally install Laravel using Composer, run the following command:
 composer global require laravel/installer
 ```
 
-Make sure to place the `~/.composer/vendor/bin` directory (or the equivalent directory for your operating system) in your system's PATH so the `laravel` executable can be located by your system.
+### Create Project
 
 ```bash
 laravel new example-app --using=larvata/laravel-starter-kit 
 ```
 
+### Create Development Environment
 
+```bash
+docker exec -t web php artisan octane:install --server=swoole
+docker exec -t web composer install
+docker exec -t web npm install
+```
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
